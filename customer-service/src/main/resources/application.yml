@@ -1,0 +1,23 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: customer-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848 #172.30.111.64:8848 #
+      config:
+        file-extension: yaml
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8719
+      filter:
+        enabled: true
+  config:
+    import:
+      - nacos:customer-service.yaml?refreshEnabled=true
+current:
+  environment: dev
+  version: 1.0.0.1

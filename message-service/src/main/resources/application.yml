@@ -1,0 +1,19 @@
+server:
+  port: 8081
+  #address: 192.168.2.235
+spring:
+  application:
+      name: message-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848  #172.30.111.64:8848 #
+      config:
+        file-extension: yaml
+    sentinel:
+        transport:
+          dashboard: 127.0.0.1:8858
+  config:
+    import: nacos:message-service.yaml
+current:
+  environment: dev
+  version: 0.0.1
