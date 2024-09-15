@@ -24,7 +24,11 @@ public class PersonController {
     public ResultData getPerson(@PathVariable(value = "id") Long id) {
         PersonEntity person = personService.getByPersonID(id);
        return  ResultData.SUCCESS(person);
-
+    }
+    @RequestMapping("/add")
+    public ResultData addPerson(@RequestBody PersonEntity person) {
+        //personService(person);
+        return ResultData.SUCCESS(person);
     }
 
 }
